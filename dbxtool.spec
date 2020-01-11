@@ -2,12 +2,11 @@
 
 Name: dbxtool
 Version: 8
-Release: 9
+Release: 10
 Summary: Tool for managing dbx updates installed on a machine.
 License: GPLv2
 URL: https://github.com/vathpela/dbxtool-devel
 Source0: https://github.com/vathpela/%{name}-devel/archive/%{git_commit_hash}/%{name}-devel-889594f.tar.gz
-Patch0: dbxtool-8-ccldflags.patch
 
 BuildRequires: gcc popt-devel efivar-devel >= 35-1 systemd
 Requires: efivar systemd
@@ -51,6 +50,9 @@ Tool for managing dbx updates installed on a machine.
 %doc %{_mandir}/man1/*
 
 %changelog
+* Mon Jan 6 2020 openEuler Buildteam <buildteam@openeuler.org> - 8-10
+- remove useless patch.
+
 * Mon Oct 21 2019 openEuler Buildteam <buildteam@openeuler.org> - 8-9
 - Package rebuild.
 
