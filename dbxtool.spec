@@ -2,7 +2,7 @@
 
 Name: dbxtool
 Version: 8
-Release: 10
+Release: 11
 Summary: Tool for managing dbx updates installed on a machine.
 License: GPLv2
 URL: https://github.com/vathpela/dbxtool-devel
@@ -50,6 +50,9 @@ Tool for managing dbx updates installed on a machine.
 %doc %{_mandir}/man1/*
 
 %changelog
+* Tue Oct 25 2022 yanglongkang <yanglongkang@h-partners.com> - 8-11
+- rebuild for next release
+
 * Mon Jan 6 2020 openEuler Buildteam <buildteam@openeuler.org> - 8-10
 - remove useless patch.
 
