@@ -1,0 +1,32 @@
+From 809f580026d29d42306482b3ad7f15f015916dad Mon Sep 17 00:00:00 2001
+From: ZhouPengcheng <zhoupengcheng11@huawei.com>
+Date: Mon, 14 Nov 2022 19:40:37 +0800
+Subject: [PATCH] dbxtool: fix build failure
+
+The dbxtool installation depends on the efivar,After the efivar upgrade,
+three macrows are added to the efivar,which are the same as the macro
+variables of the dbxtool.As a result, the dbxtool build failure.
+Therefore,redundant macro definitions are deleted from the dbxtool to
+fix the build failure.
+---
+ src/esl.h | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/src/esl.h b/src/esl.h
+index 456f748..3b9b788 100644
+--- a/src/esl.h
++++ b/src/esl.h
+@@ -47,10 +47,6 @@ typedef struct {
+ 	uint8_t		pad2;
+ } __attribute__((aligned (1))) EFI_TIME;
+ 
+-#define EFI_TIME_ADJUST_DAYLIGHT	0x01
+-#define EFI_TIME_IN_DAYLIGHT		0x02
+-
+-#define EFI_UNSPECIFIED_TIMEZONE	0x07ff
+ 
+ typedef struct _EFI_CERT_BLOCK_RSA_2048_SHA256 {
+ 	efi_guid_t	HashType;
+-- 
+2.27.0
+
