@@ -2,11 +2,13 @@
 
 Name: dbxtool
 Version: 8
-Release: 11
+Release: 12
 Summary: Tool for managing dbx updates installed on a machine.
 License: GPLv2
 URL: https://github.com/vathpela/dbxtool-devel
 Source0: https://github.com/vathpela/%{name}-devel/archive/%{git_commit_hash}/%{name}-devel-889594f.tar.gz
+
+Patch9000:	remove-duplicate-efi-defines.patch
 
 BuildRequires: gcc popt-devel efivar-devel >= 35-1 systemd
 Requires: efivar systemd
@@ -50,6 +52,9 @@ Tool for managing dbx updates installed on a machine.
 %doc %{_mandir}/man1/*
 
 %changelog
+* Mon Nov 14 2022 zhoupengcheng <zhoupengcheng11@huawei.com> - 8-12
+- fix build failure
+
 * Tue Oct 25 2022 yanglongkang <yanglongkang@h-partners.com> - 8-11
 - rebuild for next release
 
