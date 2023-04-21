@@ -9,6 +9,7 @@ URL: https://github.com/vathpela/dbxtool-devel
 Source0: https://github.com/vathpela/%{name}-devel/archive/%{git_commit_hash}/%{name}-devel-889594f.tar.gz
 
 Patch9000:	remove-duplicate-efi-defines.patch
+Patch9001:  fix-clang-build-error.patch
 
 BuildRequires: gcc popt-devel efivar-devel >= 35-1 systemd
 Requires: efivar systemd
