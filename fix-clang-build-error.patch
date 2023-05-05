@@ -1,0 +1,27 @@
+diff -up dbxtool-devel-889594ffb104e3384fd91395f4f26b8b68fc38e1/Make.defaults.orig2 dbxtool-devel-889594ffb104e3384fd91395f4f26b8b68fc38e1/Make.defaults
+--- dbxtool-devel-889594ffb104e3384fd91395f4f26b8b68fc38e1/Make.defaults.orig2	2023-04-21 17:32:14.589427594 +0800
++++ dbxtool-devel-889594ffb104e3384fd91395f4f26b8b68fc38e1/Make.defaults	2023-04-21 17:37:13.503082890 +0800
+@@ -5,6 +5,7 @@ PREFIX := /usr
+ 
+ INCDIR	   = -I$(TOPDIR)/include
+ CFLAGS     = -g3 -Og
++ifeq ($(CC),$(COMPILER)gcc)
+ BUILDFLAGS = $(CFLAGS) -fPIC -fshort-wchar -fno-strict-aliasing \
+ 		-fno-merge-constants -std=gnu11 -D_GNU_SOURCE \
+ 		-Wall -Wextra -Werror -Werror=format-security \
+@@ -12,6 +13,15 @@ BUILDFLAGS = $(CFLAGS) -fPIC -fshort-wch
+ 		-Wno-unused-result -Wno-unused-function -Wno-error=cpp \
+ 		-Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong \
+ 		--param=ssp-buffer-size=4 -fexceptions
++else
++BUILDFLAGS = $(CFLAGS) -fPIC -fshort-wchar -fno-strict-aliasing \
++		-std=gnu11 -D_GNU_SOURCE \
++		-Wall -Wextra -Werror -Werror=format-security \
++		-Wsign-compare -Werror=sign-compare \
++		-Wno-unused-result -Wno-unused-function -Wno-error=cpp \
++		-Wp,-D_FORTIFY_SOURCE=2 -fstack-protector-strong \
++		--param=ssp-buffer-size=4 -fexceptions
++endif
+ ASFLAGS    =
+ LDFLAGS	   = -nostdlib
+ CCLDFLAGS  = -shared
